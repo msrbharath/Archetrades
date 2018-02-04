@@ -1,0 +1,61 @@
+<style>
+	.signUpLabel{
+		font-size: 18pt;
+		color: #fff;
+		margin-left: -18%;
+	}
+	.errorDiv{
+		border: 1px solid #fff;
+		width: 90%;
+		margin-left: 5%!important;
+		height: 80px;
+		padding-top: 18px;
+	}
+</style>
+<header id="header" style="background-color: white;">
+	<h1><a href="index.html"></a></h1>
+	<nav id="nav">
+		<ul>
+			<li><a href="index.html">Home</a></li>
+			<li><a href="generic.html">Products</a></li>
+			<li><a href="elements.html">Categories</a></li>
+			<li><a ng-click="redirectState('signup')">Sign Up</a></li>
+		</ul>
+	</nav>
+</header>
+<section id="banner" style="margin-top:10px;">
+	
+	<label class="signUpLabel">Welcome Back, Please Login ..</label>
+	<form name="signInForm">
+		<ul ng-if="showMsg" class="actions errorDiv">
+			<li ng-repeat="msg in errorArray track by $index">
+				<div style="font-size: 18pt;font-weight:bold">{{msg}}</div>
+			</li>
+		</ul>
+
+		<ul class="actions">
+			<li>
+				<input style="width:750px;cursor:default" type="text" ng-model="cname" class="big" name="cname" id="cname" placeholder="Company Name / License No" required/>
+			</li>
+		</ul>
+
+		<ul class="actions">
+			<li>
+				<input style="width:750px;cursor:default" type="password" ng-model="password" class="big" name="password" id="password" placeholder="Password"/>
+			</li>
+		</ul>
+
+		<ul class="actions">
+			<li>
+				<input type="button" value="SignIn" ng-click="logIn();"/>
+			</li>
+			<li>
+				<input type="button" value="Forgot Password" ng-click="forgotPassword();"/>
+			</li>
+		</ul>
+</form>
+
+
+
+	
+</section>

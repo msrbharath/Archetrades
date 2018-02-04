@@ -1,0 +1,75 @@
+<style>
+	.signUpLabel{
+		font-size: 18pt;
+		color: #fff;
+		margin-left: -18%;
+	}
+	.errorDiv{
+		border: 1px solid #fff;
+		width: 90%;
+		margin-left: 5%!important;
+		height: 80px;
+		padding-top: 18px;
+	}
+</style>
+<section id="banner" style="margin-top:10px;">
+	
+	<label class="signUpLabel">Kindo, Fill all the details ..</label>
+	<form name="signUpForm">
+		<ul ng-if="showMsg" class="actions errorDiv">
+			<li ng-repeat="msg in errorArray track by $index">
+				<div style="font-size: 18pt;font-weight:bold">{{msg}}</div>
+			</li>
+		</ul>
+
+		<ul class="actions">
+			<li>
+				<input style="width:750px;cursor:default" type="text" ng-model="firstName" class="big" name="fname" id="fname" placeholder="First Name" required/>
+			</li>
+		</ul>
+
+		<ul class="actions">
+			<li>
+				<input style="width:750px;cursor:default" type="text" ng-model="companyName" class="big" name="cname" id="cname" placeholder="Company Name" required/>
+			</li>
+		</ul>
+
+		<ul class="actions">
+			<li>
+				<input style="width:750px;cursor:default" type="email" ng-model="emailID" class="big" name="emailID" id="emailID" placeholder="Email ID" required/>
+			</li>
+		</ul>
+
+		<ul class="actions">
+			<li>
+				<input style="width:750px;cursor:default" type="text" ng-model="phoneNo" class="big" name="phoneNo" id="phoneNo" placeholder="Phone No" ng-blur="checkForExistence()"required/>
+			</li>
+		</ul>
+
+		<ul class="actions">
+			<li>
+				<input style="width:750px;cursor:default" type="password" ng-model="password1" class="big" name="password" id="password" placeholder="Password"/>
+			</li>
+		</ul>
+
+		<ul class="actions">
+			<li>
+				<input style="width:750px;cursor:default" type="password" ng-model="password2" class="big" name="password" id="password" placeholder="Confirm Your Password"/>
+			</li>
+		</ul>
+
+		<ul class="actions">
+			<li ng-if="!showForgotPasswordLink">
+				<input type="button" value="SignUp" ng-click="signup();"/>
+			</li>
+			<li ng-if="showForgotPasswordLink">
+				<input type="button" value="Forgot Password" ng-click="forgotPassword();"/>
+				<input type="button" value="Sign In" ng-click="signIn();"/>
+			</li>
+		</ul>
+</form>
+
+
+
+	
+</section>

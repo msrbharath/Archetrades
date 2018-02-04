@@ -1,0 +1,143 @@
+<style>
+	.atypeahead{
+		width: 50%;
+		margin-left: 18%!important;
+		border: 1px solid #ceee;
+		text-align: left;
+		padding-left: 20px;
+	}
+</style>
+<header id="header" style="background-color: white;">
+	<h1><a href="index.html"></a></h1>
+	<nav id="nav">
+		<ul>
+			<li><a href="#">Home</a></li>
+			<li><a ng-click="redirectState('products')">Products</a></li>
+			<li><a ng-click="redirectState('catalogues')">Catalogues</a></li>
+			<li><a ng-click="redirectState('signin')">Sign In</a></li>
+			<li><a ng-click="redirectState('signup')">Sign Up</a></li>
+		</ul>
+	</nav>
+</header>
+<section id="banner" style="margin-top:-80px;">
+	<h2>ArcheTrades</h2>
+	<p>For all your Architectural needs</p>
+	<ul class="actions">
+		<li>
+			
+			<input style="width:750px;cursor:default" type="text" ng-model="searchItems" class="big" name="search" id="searchBox" placeholder="Search for Products, Catalogues, etc.."/>
+		</li>
+		<ul class="actions atypeahead" style="width:750px" ng-if="showTypeAhead">
+		
+			<span ng-repeat="i in states track by $index" ng-if="states.length>0">
+				<li style="clear:both;width:100%;margin-bottom:5px;border-bottom: 1px solid #ceee;height: 50px;padding: 10px 10px 10px 10px;" ng-click="selectProduct(states,i,states[i])" ng-if="$index<8">{{i}}</li>
+			</span>
+			<span ng-if="states.length==0">
+				<li style="clear:both;width:100%;margin-bottom:5px;border-bottom: 1px solid #ceee;height: 50px;padding: 10px 10px 10px 10px;">No Match Found</li>
+			</span>
+		</ul>
+	</ul>
+</section>
+<h2 style="margin-top: 25px;font-weight: bold">Top Most Searches</h2>
+<section style="margin-top:20px;background-image:url(images/pic08.jpg)"> 
+		
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+		<!-- Indicators -->
+			<ol class="carousel-indicators">
+			  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+			  <li data-target="#myCarousel" data-slide-to="1"></li>
+			  <li data-target="#myCarousel" data-slide-to="2"></li>
+			  
+			  <li data-target="#myCarousel" data-slide-to="3"></li>
+			  <li data-target="#myCarousel" data-slide-to="4"></li>
+			  <li data-target="#myCarousel" data-slide-to="5"></li>
+			  <li data-target="#myCarousel" data-slide-to="6"></li>
+			  <li data-target="#myCarousel" data-slide-to="7"></li>
+			</ol>
+
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner">
+
+			  <div class="item active">
+				<img src="images/f1.jpg" alt="Los Angeles" style="width:100%;">
+				<div class="carousel-caption">
+				  <h3>Type 1</h3>
+				  <p>More Luxury</p>
+				</div>
+			  </div>
+
+			  <div class="item">
+				<img src="images/f2.jpg" alt="Chicago" style="width:100%;">
+				<div class="carousel-caption">
+				  <h3>Type 2</h3>
+				  <p>Chicago Fashion!</p>
+				</div>
+			  </div>
+			
+			  <div class="item">
+				<img src="images/f3.jpg" alt="New York" style="width:100%;">
+				<div class="carousel-caption">
+				  <h3>Type 3</h3>
+				  <p>We love the Big Apple!</p>
+				</div>
+			  </div>
+			  
+			  <div class="item">
+				<img src="images/f4.jpg" alt="New York" style="width:100%;">
+				<div class="carousel-caption">
+				  <h3>Type 3</h3>
+				  <p>We love the Big Apple!</p>
+				</div>
+			  </div>
+			  
+			  <div class="item">
+				<img src="images/f5.jpg" alt="New York" style="width:100%;">
+				<div class="carousel-caption">
+				  <h3>Type 3</h3>
+				  <p>We love the Big Apple!</p>
+				</div>
+			  </div>
+			  
+			  <div class="item">
+				<img src="images/f6.jpg" alt="New York" style="width:100%;">
+				<div class="carousel-caption">
+				  <h3>Type 3</h3>
+				  <p>We love the Big Apple!</p>
+				</div>
+			  </div>
+			  
+			  <div class="item">
+				<img src="images/f7.jpg" alt="New York" style="width:100%;">
+				<div class="carousel-caption">
+				  <h3>Type 3</h3>
+				  <p>We love the Big Apple!</p>
+				</div>
+			  </div>
+		  
+			</div>
+	  </div>
+	
+</section>
+
+<section id="one" style="margin-top:10px;" class="wrapper style1 align-center">
+	<div class="container">
+		<header>
+			<h2>Categorical Search</h2>
+			<p>Select a category and search your needy items</p>
+		</header>
+		<div class="row 200%">
+			<section class="4u 12u$(small)">
+				<i class="icon big rounded fa-clock-o"></i>
+				<p>Over 10000+ Products Available here</p>
+			</section>
+			<section class="4u 12u$(small)">
+				<i class="icon big rounded fa-comments"></i>
+				<p>More than 100+ categories</p>
+			</section>
+			<section class="4u$ 12u$(small)">
+				<i class="icon big rounded fa-user"></i>
+				<p>10+ Successfull Stories and Projects</p>
+			</section>
+		</div>
+	</div>
+</section>

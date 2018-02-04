@@ -1,0 +1,92 @@
+<style>
+	.orange{
+		background-color:tomato!important;
+		color:black;
+	} 
+	.firstObj{
+		font-size: 20pt!important;
+		font-weight: bold!important;
+		padding-top: 5px;
+		font-family:"Times New Roman";
+	}
+	.secondObj{
+		font-size: 18pt!important;
+		font-weight: italic!important;
+		padding-top: 6px;
+		font-family:"Times New Roman";
+		margin-left:15%;
+
+	}
+	.container{
+		margin:0px!important;
+	}
+</style>
+<header id="header" style="background-color: white;">
+	<h1><a href="index.html"></a></h1>
+	<nav id="nav">
+		<ul>
+			<li><a ng-click="redirectState('products');">All Products</a></li>
+			<li><a ng-click="redirectState('Kitchenbath')">Kitchen / Bath</a></li>
+			<li><a ng-click="redirectState('Interior')">Interior</a></li>
+			<li><a ng-click="redirectState('Lighting')">Lighting</a></li>
+			<li><a ng-click="redirectState('exterior')">Exterior</a></li>
+			<li><a ng-click="redirectState('construction')">Construction</a></li>
+			<li><a ng-click="redirectState('companies')">Companies</a></li>
+			<li><a ng-click="redirectState('News Letters')">NewsLetters</a></li>
+			<li><a ng-click="redirectState('aboutMe')">{{userName}}</a></li>
+		</ul>
+	</nav>
+</header>
+<section id="" class="" style="margin-top:10px;float:left;width:100%">
+	
+	<ul class="actions">
+		<li>
+			<input style="width:350px;cursor:default" type="text" ng-model="searchItem" class="big" name="searchItem" id="searchItem" placeholder="Enter your Search Item"/>
+		</li>
+
+		<li ng-if="showExpandAll">
+		 	<input type="button" class="button alt small" value="Expand All" ng-click="changeValue();"/>
+		</li>
+		<li ng-if="!showExpandAll">
+		 	<input type="button" class="button alt small" value="Hide All" ng-click="changeValue();"/>
+		</li>
+		<li>
+			<input type="button" class="button alt small orange" value="Filter" ng-click="filterproducts();"/>
+		</li>
+	</ul>
+</section>
+<section class="row actions" ng-if="!showExpandAll">
+	<div>
+		<ul ng-repeat="item in mainObj.furniture track by $index">
+			
+			<span ng-repeat="(key,value) in item track by $index">
+				<ol ng-click="SelectAll(key);">
+					<input id="{{key}}" name="{{key}}" type="checkbox" ng-model="firstRootObj[key]">
+					<label class="firstObj" for="{{key}}">
+						{{key}} 
+						<a ng-click="">Exp / Coll </a>
+					</label>
+				</ol>
+					<li style="list-style-type: none;" ng-repeat="x in value track by $index">
+						<input id="{{x}}" name="{{x}}" type="checkbox">
+						<label class="secondObj" for="{{x}}">{{x}} </label>
+					</li>
+			</span>
+		</ul>
+	</div>
+</section>
+
+<section id="" style="margin-top:10px;" ng-if="searchResults">
+	
+	<div ng-repeat="item in items track by $index">
+		<div style="float:left;margin:10px 10px 10px 10px;">
+			<label>
+				Item - {{item.name}} - Available Quantity - {{item.qunatityAvailable}}
+			</label>
+			<div>
+				<img style="width:500px" src={{item.src}} alt="$index" />
+			</div>
+		</div>
+	</div>
+
+</section>

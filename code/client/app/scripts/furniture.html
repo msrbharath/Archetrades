@@ -1,0 +1,50 @@
+<header id="header" style="background-color: white;">
+	<h1><a href="index.html"></a></h1>
+	<nav id="nav">
+		<ul>
+			<li><a ng-click="redirectState('products');">All Products</a></li>
+			<li><a ng-click="redirectState('Kitchenbath')">Kitchen / Bath</a></li>
+			<li><a ng-click="redirectState('Interior')">Interior</a></li>
+			<li><a ng-click="redirectState('Lighting')">Lighting</a></li>
+			<li><a ng-click="redirectState('exterior')">Exterior</a></li>
+			<li><a ng-click="redirectState('construction')">Construction</a></li>
+			<li><a ng-click="redirectState('companies')">Companies</a></li>
+			<li><a ng-click="redirectState('News Letters')">NewsLetters</a></li>
+			<li><a ng-click="redirectState('aboutMe')">{{userName}}</a></li>
+		</ul>
+	</nav>
+</header>
+<section id="banner" style="margin-top:10px;">
+	
+	<ul class="actions">
+		<li>
+			<input type="text" ng-model="itemCode" class="big" name="itemCode" id="itemCode" placeholder="Enter Item Code"/>
+			<input type="checkbox" ng-model="checkboxModel.value1">
+			<input type="radio" ng-model="openSubItems" name="openSubItems" id="openSubItems" ng-click="openSubItems=!openSubItems" value="Expand"/>Expand
+		</li>
+
+	</ul>
+
+	<ul class="actions">
+		<li>
+			<input type="button" value="Filter" ng-click="filterproducts();"/>
+		</li>
+	</ul>
+
+
+</section>
+
+<section id="" style="margin-top:10px;" ng-if="searchResults">
+	
+	<div ng-repeat="item in items track by $index">
+		<div style="float:left;margin:10px 10px 10px 10px;">
+			<label>
+				Item - {{item.name}} - Available Quantity - {{item.qunatityAvailable}}
+			</label>
+			<div>
+				<img style="width:500px" src={{item.src}} alt="$index" />
+			</div>
+		</div>
+	</div>
+
+</section>
